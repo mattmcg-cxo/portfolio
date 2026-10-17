@@ -1,49 +1,55 @@
 ---
 import SeoHead from "../components/SeoHead.astro";
-const pageTitle = "Matt McGowan · Connect";
+const pageTitle = "Contact Matt McGowan | Hire, Book a Call or Connect";
 const pageDescription =
-  "Direct routing for recruiters, founders, executive teams, GTM partners, and leadership opportunities.";
+  "Work with Matt McGowan: fractional CTO and CIO leadership, hands-on engineering or engineering advisory through NullorNaN, or book a free 30-minute call.";
 
 const routes = [
   {
-    title: "Fractional CTO, vCIO, or vCOO leadership",
-    body: "Technology strategy and engineering leadership for software and SaaS teams, with ownership of delivery and operations.",
-    url: "https://nullornan.com",
-    cta: "nullornan.com"
+    title: "Book a free 30-minute call",
+    body: "The fastest way to start. Bring the problem, not a deck, and I will tell you honestly whether I can help.",
+    url: "https://app.reclaim.ai/m/nullornan/lets-talk",
+    cta: "Book a free 30-minute call"
   },
   {
-    title: "Principal SRE consulting",
-    body: "Hands-on reliability leadership across architecture, incidents, automation, cloud, and platform operations.",
-    url: "https://nullornan.com",
-    cta: "nullornan.com"
+    title: "Fractional CTO or CIO leadership (NullCXO)",
+    body: "Fractional executive leadership for founders and SMB leaders through NullorNaN. NullCXO covers CTO, CIO, CISO or COO seats.",
+    url: "https://nullornan.com/nullcxo/",
+    cta: "nullornan.com/nullcxo"
   },
   {
-    title: "Software engineering and SaaS projects",
-    body: "Hands-on software development, SaaS architecture, and platform modernization with scope and timeline set in writing.",
-    url: "https://nullornan.com",
-    cta: "nullornan.com"
+    title: "Hands-on engineering (Null Engineer)",
+    body: "Senior hands-on engineering across software, cloud, infrastructure and reliability, when the work needs someone in the code and the systems.",
+    url: "https://nullornan.com/null-engineer/",
+    cta: "nullornan.com/null-engineer"
   },
   {
-    title: "Recruiters and FTE opportunities",
-    body: "Software engineering and SaaS leadership, targeting Director through CXO scope across full-time, contract, and part-time opportunities.",
+    title: "Engineering advisory (Null Advisory)",
+    body: "Engineering advisory on a bounded technical question, such as an architecture second opinion, an infrastructure review or a vendor review.",
+    url: "https://nullornan.com/null-advisory/",
+    cta: "nullornan.com/null-advisory"
+  },
+  {
+    title: "Full-time roles and recruiters",
+    body: "Fractional and advisory work runs through NullorNaN, and I'm open to the right full-time role. LinkedIn is the best place to start that conversation.",
     url: "https://www.linkedin.com/in/matthewcmcgowan",
     cta: "linkedin.com/in/matthewcmcgowan"
   },
   {
     title: "Direct connection",
-    body: "Send a free LinkedIn InMail with your pitch, context, and the impact you want to create.",
+    body: "Send a free LinkedIn InMail. A little context and what you're trying to get done goes a long way.",
     url: "https://www.linkedin.com/in/matthewcmcgowan",
     cta: "Send a LinkedIn InMail"
   },
   {
-    title: "Operator content and reliability writing",
-    body: "Reliability Lounge: community and essays for infrastructure builders.",
+    title: "Reliability Lounge",
+    body: "The free, open-source SRE community I founded for people who run production systems.",
     url: "https://reliabilitylounge.com",
     cta: "reliabilitylounge.com"
   },
   {
     title: "Code and technical projects",
-    body: "GitHub: software, automation, infrastructure, and platform engineering work.",
+    body: "GitHub: software, automation, infrastructure and platform engineering work.",
     url: "https://github.com/NullOrNaN",
     cta: "github.com/NullOrNaN"
   }
@@ -55,7 +61,7 @@ const routes = [
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <SeoHead title={pageTitle} description={pageDescription} canonical="https://lethal.coffee/connect" />
+    <SeoHead title={pageTitle} description={pageDescription} path="/connect/" pageType="ContactPage" />
     <link rel="stylesheet" href="/assets/styles/main.css" />
   </head>
   <body>
@@ -63,10 +69,11 @@ const routes = [
       <div class="topbar">
         <a class="brand" href="/" aria-label="MattMcG / Lethal Coffee home">MattMcG / Lethal Coffee</a>
         <nav class="top-links" aria-label="Primary">
-          <a href="/about">About</a>
-          <a href="/projects">Projects</a>
+          <a href="/about/">About</a>
+          <a href="/projects/">Projects</a>
           <a href="/#ventures">Ventures</a>
-          <a href="/connect" aria-current="page">Connect</a>
+          <a href="/connect/" aria-current="page">Connect</a>
+          <a href="https://app.reclaim.ai/m/nullornan/lets-talk" target="_blank" rel="noopener noreferrer">Book a free call</a>
         </nav>
       </div>
     </header>
@@ -74,8 +81,8 @@ const routes = [
     <main class="page-shell">
       <section class="connect-hero">
         <p class="eyebrow">Matt McGowan</p>
-        <h1 class="connect-title">Find the right lane.</h1>
-        <p class="connect-sub">Open to full-time software engineering and SaaS leadership opportunities. NullOrNaN supports consulting and project work; it is not designed to replace full-time employment. Choose the route that fits.</p>
+        <h1 class="connect-title">Let's talk.</h1>
+        <p class="connect-sub">Fractional and advisory work runs through NullorNaN, and I'm open to the right full-time role. I'm based in Atlanta Metro / US Southeast and work with clients remotely across the US. Choose the route that fits.</p>
       </section>
 
       <section aria-label="Routing options">
@@ -88,7 +95,7 @@ const routes = [
                   <span class="connect-title-row">{r.title}</span>
                   <span class="connect-desc">{r.body}</span>
                 </span>
-                <span class="connect-cta">{r.cta} →</span>
+                <span class="connect-cta">{r.cta} -&gt;</span>
               </a>
             </li>
           ))}
@@ -100,14 +107,13 @@ const routes = [
       <div class="footer-inner">
         <p class="footer-name">Matt McGowan</p>
         <nav class="footer-links" aria-label="External links">
-          <a href="https://lethal.coffee" target="_blank" rel="noopener noreferrer">lethal.coffee</a>
           <a href="https://nullornan.com" target="_blank" rel="noopener noreferrer">nullornan.com</a>
           <a href="https://www.linkedin.com/in/matthewcmcgowan" target="_blank" rel="noopener noreferrer">LinkedIn</a>
           <a href="https://reliabilitylounge.com" target="_blank" rel="noopener noreferrer">reliabilitylounge.com</a>
           <a href="https://github.com/NullOrNaN" target="_blank" rel="noopener noreferrer">github.com/NullOrNaN</a>
-          <a href="https://app.reclaim.ai/m/nan-connects" target="_blank" rel="noopener noreferrer">Book a Call</a>
+          <a href="https://app.reclaim.ai/m/nullornan/lets-talk" target="_blank" rel="noopener noreferrer">Book a free 30-minute call</a>
         </nav>
-        <p class="footer-copy">&copy; 2026 Matt McGowan</p>
+        <p class="footer-copy">&copy; 2026 Matt McGowan · Atlanta Metro / US Southeast</p>
       </div>
     </footer>
 
