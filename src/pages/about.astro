@@ -1,8 +1,8 @@
 ---
 import SeoHead from "../components/SeoHead.astro";
-const pageTitle = "Matt McGowan · About";
+const pageTitle = "About Matt McGowan | CTO, Founder and Executive Advisor";
 const pageDescription =
-  "Principal Engineer and Technology Executive focused on software engineering and SaaS, with deep experience in infrastructure, platform engineering, and SRE.";
+  "Matthew (Matt) McGowan: Founder and CTO of NullorNaN Systems, co-founder and CTO/COO of OUR+'R, 20+ years in software, SaaS and regulated infrastructure.";
 ---
 
 <!doctype html>
@@ -10,7 +10,7 @@ const pageDescription =
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <SeoHead title={pageTitle} description={pageDescription} canonical="https://lethal.coffee/about" type="article" />
+    <SeoHead title={pageTitle} description={pageDescription} path="/about/" type="profile" pageType="ProfilePage" />
     <link rel="stylesheet" href="/assets/styles/main.css" />
   </head>
   <body>
@@ -18,9 +18,11 @@ const pageDescription =
       <div class="topbar">
         <a class="brand" href="/" aria-label="MattMcG / Lethal Coffee home">MattMcG / Lethal Coffee</a>
         <nav class="top-links" aria-label="Primary">
-          <a href="/projects">Projects</a>
+          <a href="/about/" aria-current="page">About</a>
+          <a href="/projects/">Projects</a>
           <a href="/#ventures">Ventures</a>
-          <a href="/connect">Connect</a>
+          <a href="/connect/">Connect</a>
+          <a href="https://app.reclaim.ai/m/nullornan/lets-talk" target="_blank" rel="noopener noreferrer">Book a free call</a>
         </nav>
       </div>
     </header>
@@ -29,23 +31,49 @@ const pageDescription =
       <article class="about-wrap">
         <header class="about-header">
           <p class="eyebrow">Matt McGowan</p>
-          <h1 class="about-title">Principal Engineer. Technology Executive. Builder.</h1>
+          <h1 class="about-title">Founder and CTO. Comfortable in the boardroom and on the 2am incident call.</h1>
         </header>
 
         <div class="about-body">
           <p>
-            I have been building software and systems since 2005. Today my focus is software engineering and SaaS: shaping architecture, building products, and leading teams from idea to production. I bring the infrastructure depth to support that work, spanning SRE, InfraOps, platform engineering, GitOps, AIOps, and production operations. My work connects hands-on engineering with executive execution, from the architecture decision to the 2am incident call.
+            I'm Matthew (Matt) McGowan, Founder and CTO of NullorNaN Systems and co-founder and CTO/COO of OUR+'R Technologies. I'm a CTO, executive advisor and 3x founder. I've spent 20+ years building software and systems (since 2005) across CTO, CIO and tech-focused COO responsibilities. I work across SaaS, FinTech, platform companies and regulated infrastructure, including federal and defense, from the architecture decision to the 2am incident call. I'm based in Atlanta Metro / US Southeast and work with clients remotely across the US.
           </p>
           <p>
-            I am the Founding Chief Technology Officer at OUR+'R Technologies and run NullOrNaN Systems, where I personally deliver software engineering, SaaS architecture, fractional CTO, vCIO, vCOO, Principal SRE, and scoped technical project engagements. I am also Lead Engineer at Reliability Lounge, a community and content hub for operators who work in production environments. Before that, I spent years at ASRC Federal leading infrastructure modernization across large, complex systems, cutting incident resolution time, improving platform stability, and building the kind of cross-functional operational discipline that doesn't get taught in a course.
+            NullorNaN started in 2021 as freelance fractional CTO work. Before that came an early product advisory engagement that grew MRR 13x ($300 to $4,000). NullorNaN became an LLC in 2026, and I have run it full-time since March 2026. Through NullorNaN I lead fractional CTO and CIO work under <a href="https://nullornan.com/nullcxo/" target="_blank" rel="noopener noreferrer">NullCXO</a> (which also covers CISO and COO seats), hands-on engineering under <a href="https://nullornan.com/null-engineer/" target="_blank" rel="noopener noreferrer">Null Engineer</a> and engineering advisory under <a href="https://nullornan.com/null-advisory/" target="_blank" rel="noopener noreferrer">Null Advisory</a>. Since August 2026 I have served as Fractional CTO and Executive Advisor to SpeedMax LLC, through NullorNaN. I'm also a member of the Go Fractional vetted network.
           </p>
           <p>
-            I am available for the right full-time, contract, or part-time opportunity, targeting Director through CXO scope. NullOrNaN is a home for consulting, scoped projects, and fractional leadership; it is not designed to replace full-time employment. Fit and organizational impact matter more to me than the exact title.
+            At OUR+'R Technologies, which I co-founded in June 2026, I serve as CTO/COO. I took the product from concept to MVP and cut build time 60%.
+          </p>
+          <p>
+            Some results I can share. In a 30-day engagement, I cut a client's AI spend from $20M to $12M annualized through governance and model prioritization, with about $2M realized within the 30 days. I have advised on seller-side technical readiness for four startup acquisitions totaling about $60M, and caught deal-threatening issues in three of them (about $30M combined). At SpeedMax LLC, I had a fix in place for a critical backup failure in about 15 minutes, then cut infrastructure costs about 50%. Across my career I have led 50+ people, including vendor teams, delivered $10M+ in programs and cut infrastructure costs 30% through right-sizing.
+          </p>
+          <p>
+            From 2021 to 2026 I was at ASRC Federal, first as Platform Engineering Lead and then as Engineering Manager. I led 25+ engineers across 3 divisions, with 12 direct reports, on a program spanning 70+ sites. I cut time to restore 75% (60 to 15 minutes), rebuilt 112 Linux servers with zero downtime, raised delivery visibility from 50% to 90% and scaled from 12 to 120 physical systems in 90 days while remediating 300+ security findings. I made Ansible the automation standard, and I cut maintenance and patching windows from three weekends (often running over) to one day through automation and Azure standardization. Before that, I worked at Aptum, RamNode and INTERNET NETWORKS.
+          </p>
+          <p>
+            I have hands-on compliance experience: SOC 2 reporting, PCI-DSS reporting and a live DoD Command Cyber Readiness Inspection (CCRI) audit. That is experience I bring to the work, not a certification.
+          </p>
+          <p>
+            I founded Reliability Lounge, a free, open-source SRE community, and I write the Null vs the Stack series. Fractional and advisory work runs through NullorNaN, and I'm open to the right full-time role. Fit and impact matter more to me than the exact title.
           </p>
 
+          <!-- Longer versions of the home page pull-quotes. Verified word for word from public LinkedIn recommendations. Never reword; trim only at sentence boundaries, marked with three periods. -->
+          <figure>
+            <blockquote>
+              <p>"Matthew provided an extraordinary impact to our business when we needed it most. We first contacted Matthew when we were having a serious reliability issue affecting our entire business operation on a large scale level. Matthew was able to fix in 15 minutes what several others were unable to solve in weeks, and provided several realistic paths forward to permanent resolution. After that, he has provided ongoing advisory level assistance with ongoing virtualization issues and strategy."</p>
+            </blockquote>
+            <figcaption>Dani Perteet, Founder, SpeedMax LLC (LinkedIn recommendation)</figcaption>
+          </figure>
+          <figure>
+            <blockquote>
+              <p>"... Since joining OUR+R Technologies as Co-Founder and CTO/COO, Matt has been relentless in his approach to hardening our infrastructure. He transitioned us from a solo-built MVP to an enterprise-grade 'Production Dev' environment on DigitalOcean in record time, always prioritizing redundancy and multi-region failover. What sets Matt apart is his ability to bridge deep Platform Engineering expertise with a sharp operational mind. He doesn't just build code; he builds a 'Technical Fortress.' If you are looking for an executive who leads with integrity, data-backed logic, and a zero-downtime mentality, Matthew is the gold standard. I couldn't ask for a better partner to lead our technical and operational scale."</p>
+            </blockquote>
+            <figcaption>Clayton Hill, MBA, Founder and CEO, OUR+'R Technologies, Inc. (LinkedIn recommendation)</figcaption>
+          </figure>
+
           <p class="about-routing">
-            For consulting and project work, start at <a href="https://nullornan.com" target="_blank" rel="noopener noreferrer">nullornan.com</a>.
-            For full-time opportunities or a direct connection, find me on <a href="https://www.linkedin.com/in/matthewcmcgowan" target="_blank" rel="noopener noreferrer">LinkedIn</a>.
+            For fractional or advisory work, start at <a href="https://nullornan.com" target="_blank" rel="noopener noreferrer">nullornan.com</a> or <a href="https://app.reclaim.ai/m/nullornan/lets-talk" target="_blank" rel="noopener noreferrer">book a free 30-minute call</a>.
+            For full-time roles or a direct connection, find me on <a href="https://www.linkedin.com/in/matthewcmcgowan" target="_blank" rel="noopener noreferrer">LinkedIn</a>.
           </p>
         </div>
       </article>
@@ -55,14 +83,13 @@ const pageDescription =
       <div class="footer-inner">
         <p class="footer-name">Matt McGowan</p>
         <nav class="footer-links" aria-label="External links">
-          <a href="https://lethal.coffee" target="_blank" rel="noopener noreferrer">lethal.coffee</a>
           <a href="https://nullornan.com" target="_blank" rel="noopener noreferrer">nullornan.com</a>
           <a href="https://www.linkedin.com/in/matthewcmcgowan" target="_blank" rel="noopener noreferrer">LinkedIn</a>
           <a href="https://reliabilitylounge.com" target="_blank" rel="noopener noreferrer">reliabilitylounge.com</a>
           <a href="https://github.com/NullOrNaN" target="_blank" rel="noopener noreferrer">github.com/NullOrNaN</a>
-          <a href="https://app.reclaim.ai/m/nan-connects" target="_blank" rel="noopener noreferrer">Book a Call</a>
+          <a href="https://app.reclaim.ai/m/nullornan/lets-talk" target="_blank" rel="noopener noreferrer">Book a free 30-minute call</a>
         </nav>
-        <p class="footer-copy">&copy; 2026 Matt McGowan</p>
+        <p class="footer-copy">&copy; 2026 Matt McGowan · Atlanta Metro / US Southeast</p>
       </div>
     </footer>
 

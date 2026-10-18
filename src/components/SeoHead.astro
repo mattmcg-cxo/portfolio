@@ -2,44 +2,60 @@
 interface Props {
   title: string;
   description: string;
-  canonical: string;
-  type?: "website" | "article";
+  path: string;
+  type?: "website" | "article" | "profile";
+  pageType?: "WebPage" | "ProfilePage" | "CollectionPage" | "ContactPage";
   image?: string;
   faqs?: { question: string; answer: string }[];
 }
 
-const { title, description, canonical, type = "website", image = "https://lethal.coffee/assets/images/profile2/profile2-400.webp", faqs = [] } = Astro.props;
+// Every absolute URL derives from `site` in astro.config.mjs (the one domain value).
+const siteUrl = new URL("/", Astro.site).href;
+const { title, description, path, type = "website", pageType = "WebPage", image = new URL("/assets/images/profile2/profile2-400.webp", Astro.site).href, faqs = [] } = Astro.props;
+const canonical = new URL(path, Astro.site).href;
+const personId = "https://nullornan.com/#matthew-mcgowan";
+const organizationId = "https://nullornan.com/#organization";
+const websiteId = `${siteUrl}#website`;
+const profilePageId = new URL("/about/#profilepage", Astro.site).href;
+const linkedInUrl = "https://www.linkedin.com/in/matthewcmcgowan";
+const gitHubUrl = "https://github.com/NullOrNaN";
 const graph = [
   {
     "@type": "Person",
-    "@id": "https://lethal.coffee/#person",
-    name: "Matt McGowan",
-    alternateName: ["MattMcG", "Lethal Coffee", "lethal.coffee"],
-    url: "https://lethal.coffee/",
-    jobTitle: "Principal Engineer and Technology Executive",
-    description: "Principal Engineer and Technology Executive focused on software engineering, SaaS products, and engineering leadership, backed by deep infrastructure, SRE, InfraOps, platform engineering, GitOps, and AIOps experience.",
-    knowsAbout: ["Software engineering", "SaaS", "Software architecture", "Engineering leadership", "Site reliability engineering", "InfraOps", "Platform engineering", "GitOps", "AIOps", "Technical strategy", "Fractional CTO leadership", "Technology operations"],
-    worksFor: { "@type": "Organization", name: "NullOrNaN Systems", url: "https://nullornan.com" },
-    image,
-    sameAs: ["https://www.linkedin.com/in/matthewcmcgowan", "https://github.com/NullOrNaN"]
+    "@id": personId,
+    name: "Matthew McGowan",
+    givenName: "Matthew",
+    familyName: "McGowan",
+    alternateName: ["Matt McGowan", "MattMcG", "McG", "Mr. McG", "Mr. Koffee", "Lethal Coffee"],
+    url: siteUrl,
+    mainEntityOfPage: { "@id": profilePageId },
+    image: { "@type": "ImageObject", url: image, width: 400, height: 400, caption: "Matthew McGowan" },
+    jobTitle: "Founder and CTO",
+    description: "Matthew (Matt) McGowan is the Founder and CTO of NullorNaN Systems and co-founder and CTO/COO of OUR+'R Technologies. He is a CTO, executive advisor and 3x founder with 20+ years building software and systems, based in Atlanta Metro / US Southeast.",
+    knowsAbout: ["Fractional CTO leadership", "Fractional CIO leadership", "Technology strategy", "Software engineering", "SaaS architecture", "Site reliability engineering", "Platform engineering", "Cloud infrastructure", "Infrastructure automation", "Incident management", "AI spend governance", "Cloud cost optimization", "Technical readiness for acquisitions", "SOC 2 reporting", "PCI-DSS reporting", "DoD Command Cyber Readiness Inspection (CCRI)"],
+    worksFor: { "@type": "Organization", "@id": organizationId, name: "NullorNaN Systems", url: "https://nullornan.com" },
+    address: { "@type": "PostalAddress", addressLocality: "Atlanta", addressRegion: "GA", addressCountry: "US" },
+    homeLocation: { "@type": "Place", name: "Atlanta Metro / US Southeast" },
+    sameAs: [linkedInUrl, "https://nullornan.com/", gitHubUrl]
   },
   {
     "@type": "WebSite",
-    "@id": "https://lethal.coffee/#website",
-    url: "https://lethal.coffee/",
+    "@id": websiteId,
+    url: siteUrl,
     name: "MattMcG / Lethal Coffee",
-    alternateName: ["MattMcG", "Lethal Coffee", "lethal.coffee"],
-    publisher: { "@id": "https://lethal.coffee/#person" },
+    alternateName: ["MattMcG", "Lethal Coffee", "Matt McGowan"],
+    publisher: { "@id": personId },
     inLanguage: "en-US"
   },
   {
-    "@type": "WebPage",
-    "@id": `${canonical}#webpage`,
+    "@type": pageType,
+    "@id": pageType === "ProfilePage" ? profilePageId : `${canonical}#webpage`,
     url: canonical,
     name: title,
     description,
-    isPartOf: { "@id": "https://lethal.coffee/#website" },
-    about: { "@id": "https://lethal.coffee/#person" },
+    isPartOf: { "@id": websiteId },
+    about: { "@id": personId },
+    ...(pageType === "ProfilePage" ? { mainEntity: { "@id": personId } } : {}),
     inLanguage: "en-US"
   },
   ...(faqs.length ? [{ "@type": "FAQPage", mainEntity: faqs.map((faq) => ({ "@type": "Question", name: faq.question, acceptedAnswer: { "@type": "Answer", text: faq.answer } })) }] : [])
@@ -47,12 +63,14 @@ const graph = [
 ---
 <title>{title}</title>
 <meta name="description" content={description} />
-<meta name="author" content="Matt McGowan" />
+<meta name="author" content="Matthew McGowan" />
 <meta name="application-name" content="MattMcG / Lethal Coffee" />
 <meta name="robots" content="index, follow, max-image-preview:large" />
 <meta name="googlebot" content="index, follow" />
 <meta name="theme-color" content="#04070c" />
 <link rel="canonical" href={canonical} />
+<link rel="me" href={linkedInUrl} />
+<link rel="me" href={gitHubUrl} />
 <meta property="og:type" content={type} />
 <meta property="og:locale" content="en_US" />
 <meta property="og:site_name" content="MattMcG / Lethal Coffee" />
@@ -60,6 +78,8 @@ const graph = [
 <meta property="og:description" content={description} />
 <meta property="og:url" content={canonical} />
 <meta property="og:image" content={image} />
+{type === "profile" && <meta property="profile:first_name" content="Matthew" />}
+{type === "profile" && <meta property="profile:last_name" content="McGowan" />}
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content={title} />
 <meta name="twitter:description" content={description} />

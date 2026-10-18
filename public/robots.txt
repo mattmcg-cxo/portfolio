@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://lethal.coffee/sitemap-index.xml
+Sitemap: https://mattmcg.com/sitemap-index.xml
