@@ -1,5 +1,6 @@
 ---
 import SeoHead from "../components/SeoHead.astro";
+import { nullVsStackWritingUrl } from "../data/site";
 const pageTitle = "Contact Matt McGowan | Hire, Book a Call or Connect";
 const pageDescription =
   "Work with Matt McGowan: fractional CTO and CIO leadership, hands-on engineering or engineering advisory through NullorNaN, or book a free 30-minute call.";
@@ -9,49 +10,64 @@ const routes = [
     title: "Book a free 30-minute call",
     body: "The fastest way to start. Bring the problem, not a deck, and I will tell you honestly whether I can help.",
     url: "https://app.reclaim.ai/m/nullornan/lets-talk",
-    cta: "Book a free 30-minute call"
+    cta: "Book a free 30-minute call",
+    external: true
   },
   {
     title: "Fractional CTO or CIO leadership (NullCXO)",
-    body: "Fractional executive leadership for founders and SMB leaders through NullorNaN. NullCXO covers CTO, CIO, CISO or COO seats.",
+    body: "Fractional executive leadership for founders and SMB leaders through NullorNaN. Null CXO covers CTO, CIO, CISO or COO seats.",
     url: "https://nullornan.com/nullcxo/",
-    cta: "nullornan.com/nullcxo"
+    cta: "nullornan.com/nullcxo",
+    external: true
   },
   {
     title: "Hands-on engineering (Null Engineer)",
     body: "Senior hands-on engineering across software, cloud, infrastructure and reliability, when the work needs someone in the code and the systems.",
     url: "https://nullornan.com/null-engineer/",
-    cta: "nullornan.com/null-engineer"
+    cta: "nullornan.com/null-engineer",
+    external: true
   },
   {
     title: "Engineering advisory (Null Advisory)",
     body: "Engineering advisory on a bounded technical question, such as an architecture second opinion, an infrastructure review or a vendor review.",
     url: "https://nullornan.com/null-advisory/",
-    cta: "nullornan.com/null-advisory"
+    cta: "nullornan.com/null-advisory",
+    external: true
   },
   {
     title: "Full-time roles and recruiters",
     body: "Fractional and advisory work runs through NullorNaN, and I'm open to the right full-time role. LinkedIn is the best place to start that conversation.",
     url: "https://www.linkedin.com/in/matthewcmcgowan",
-    cta: "linkedin.com/in/matthewcmcgowan"
+    cta: "linkedin.com/in/matthewcmcgowan",
+    external: true
   },
   {
     title: "Direct connection",
-    body: "Send a free LinkedIn InMail. A little context and what you're trying to get done goes a long way.",
+    body: "Message me on LinkedIn. A little context and what you're trying to get done goes a long way.",
     url: "https://www.linkedin.com/in/matthewcmcgowan",
-    cta: "Send a LinkedIn InMail"
+    cta: "Message me on LinkedIn",
+    external: true
   },
   {
-    title: "Reliability Lounge",
-    body: "The free, open-source SRE community I founded for people who run production systems.",
+    title: "Phone",
+    body: "For a direct line, call 678-926-9072 ext. 710.",
+    url: "tel:+16789269072;ext=710",
+    cta: "678-926-9072 ext. 710",
+    external: false
+  },
+  {
+    title: "Reliability Lounge (NullorNaN community outreach)",
+    body: "Lead Engineer, Reliability Lounge: NullorNaN's community outreach division for people who run production systems.",
     url: "https://reliabilitylounge.com",
-    cta: "reliabilitylounge.com"
+    cta: "reliabilitylounge.com",
+    external: true
   },
   {
     title: "Code and technical projects",
     body: "GitHub: software, automation, infrastructure and platform engineering work.",
     url: "https://github.com/NullOrNaN",
-    cta: "github.com/NullOrNaN"
+    cta: "github.com/NullOrNaN",
+    external: true
   }
 ];
 ---
@@ -71,7 +87,9 @@ const routes = [
         <nav class="top-links" aria-label="Primary">
           <a href="/about/">About</a>
           <a href="/projects/">Projects</a>
+          <a href="/#products">Products</a>
           <a href="/#ventures">Ventures</a>
+          <a href={nullVsStackWritingUrl}>Writing</a>
           <a href="/connect/" aria-current="page">Connect</a>
           <a href="https://app.reclaim.ai/m/nullornan/lets-talk" target="_blank" rel="noopener noreferrer">Book a free call</a>
         </nav>
@@ -89,13 +107,17 @@ const routes = [
         <ol class="connect-list" role="list">
           {routes.map((r, i) => (
             <li>
-              <a class="connect-card" href={r.url} target="_blank" rel="noopener noreferrer">
+              <a
+                class="connect-card"
+                href={r.url}
+                {...(r.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+              >
                 <span class="connect-num" aria-hidden="true">{String(i + 1).padStart(2, "0")}</span>
                 <span class="connect-body">
                   <span class="connect-title-row">{r.title}</span>
                   <span class="connect-desc">{r.body}</span>
                 </span>
-                <span class="connect-cta">{r.cta} -&gt;</span>
+                <span class="connect-cta">{r.cta}</span>
               </a>
             </li>
           ))}

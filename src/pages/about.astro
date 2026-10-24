@@ -1,5 +1,6 @@
 ---
 import SeoHead from "../components/SeoHead.astro";
+import { nullVsStackWritingUrl } from "../data/site";
 const pageTitle = "About Matt McGowan | CTO, Founder and Executive Advisor";
 const pageDescription =
   "Matthew (Matt) McGowan: Founder and CTO of NullorNaN Systems, co-founder and CTO/COO of OUR+'R, 20+ years in software, SaaS and regulated infrastructure.";
@@ -20,7 +21,9 @@ const pageDescription =
         <nav class="top-links" aria-label="Primary">
           <a href="/about/" aria-current="page">About</a>
           <a href="/projects/">Projects</a>
+          <a href="/#products">Products</a>
           <a href="/#ventures">Ventures</a>
+          <a href={nullVsStackWritingUrl}>Writing</a>
           <a href="/connect/">Connect</a>
           <a href="https://app.reclaim.ai/m/nullornan/lets-talk" target="_blank" rel="noopener noreferrer">Book a free call</a>
         </nav>
@@ -36,7 +39,7 @@ const pageDescription =
 
         <div class="about-body">
           <p>
-            I'm Matthew (Matt) McGowan, Founder and CTO of NullorNaN Systems and co-founder and CTO/COO of OUR+'R Technologies. I'm a CTO, executive advisor and 3x founder. I've spent 20+ years building software and systems (since 2005) across CTO, CIO and tech-focused COO responsibilities. I work across SaaS, FinTech, platform companies and regulated infrastructure, including federal and defense, from the architecture decision to the 2am incident call. I'm based in Atlanta Metro / US Southeast and work with clients remotely across the US.
+            I'm Matthew (Matt) McGowan, Founder and CTO of NullorNaN Systems and co-founder and CTO/COO of OUR+'R Technologies. I'm a CTO, executive advisor and 3x founder. I've spent 20+ years building software and systems across CTO, CIO and tech-focused COO responsibilities. I work across SaaS, FinTech, platform companies and regulated infrastructure, including federal and defense, from the architecture decision to the 2am incident call. I'm based in Atlanta Metro / US Southeast and work with clients remotely across the US.
           </p>
           <p>
             NullorNaN started in 2021 as freelance fractional CTO work. Before that came an early product advisory engagement that grew MRR 13x ($300 to $4,000). NullorNaN became an LLC in 2026, and I have run it full-time since March 2026. Through NullorNaN I lead fractional CTO and CIO work under <a href="https://nullornan.com/nullcxo/" target="_blank" rel="noopener noreferrer">NullCXO</a> (which also covers CISO and COO seats), hands-on engineering under <a href="https://nullornan.com/null-engineer/" target="_blank" rel="noopener noreferrer">Null Engineer</a> and engineering advisory under <a href="https://nullornan.com/null-advisory/" target="_blank" rel="noopener noreferrer">Null Advisory</a>. Since August 2026 I have served as Fractional CTO and Executive Advisor to SpeedMax LLC, through NullorNaN. I'm also a member of the Go Fractional vetted network.
@@ -45,16 +48,16 @@ const pageDescription =
             At OUR+'R Technologies, which I co-founded in June 2026, I serve as CTO/COO. I took the product from concept to MVP and cut build time 60%.
           </p>
           <p>
-            Some results I can share. In a 30-day engagement, I cut a client's AI spend from $20M to $12M annualized through governance and model prioritization, with about $2M realized within the 30 days. I have advised on seller-side technical readiness for four startup acquisitions totaling about $60M, and caught deal-threatening issues in three of them (about $30M combined). At SpeedMax LLC, I had a fix in place for a critical backup failure in about 15 minutes, then cut infrastructure costs about 50%. Across my career I have led 50+ people, including vendor teams, delivered $10M+ in programs and cut infrastructure costs 30% through right-sizing.
+            Some results I can share. In a 30-day engagement, I cut a client's AI spend from $20M to $12M annualized through governance and model prioritization, with about $2M realized within the 30 days. I have advised on seller-side technical readiness for four startup acquisitions totaling about $60M, and caught deal-threatening issues in three of them (about $30M combined). At SpeedMax LLC, I had a fix in place for a critical backup failure in about 15 minutes, then cut AWS infrastructure spend 50%. Across my career I have led 50+ people, including vendor teams, delivered $10M+ in programs and cut infrastructure costs 30% through right-sizing.
           </p>
           <p>
-            From 2021 to 2026 I was at ASRC Federal, first as Platform Engineering Lead and then as Engineering Manager. I led 25+ engineers across 3 divisions, with 12 direct reports, on a program spanning 70+ sites. I cut time to restore 75% (60 to 15 minutes), rebuilt 112 Linux servers with zero downtime, raised delivery visibility from 50% to 90% and scaled from 12 to 120 physical systems in 90 days while remediating 300+ security findings. I made Ansible the automation standard, and I cut maintenance and patching windows from three weekends (often running over) to one day through automation and Azure standardization. Before that, I worked at Aptum, RamNode and INTERNET NETWORKS.
+            From 2021 to 2026 I was at ASRC Federal, first as Platform Engineering Lead and then as Engineering Manager. I led 25+ engineers across 3 divisions, with 12 direct reports, on a program spanning 70+ sites. I cut outage recovery time 75% (60 to 15 minutes), cut ASRC outages 90%, rebuilt 112 Linux servers with zero downtime, raised delivery visibility from 50% to 90% and scaled from 12 to 120 physical systems in 90 days while remediating 300+ security findings. I made Ansible the automation standard, and I cut maintenance and patching windows from three weekends (often running over) to one day through automation and Azure standardization. Before that, I worked at Aptum, RamNode and INTERNET NETWORKS.
           </p>
           <p>
             I have hands-on compliance experience: SOC 2 reporting, PCI-DSS reporting and a live DoD Command Cyber Readiness Inspection (CCRI) audit. That is experience I bring to the work, not a certification.
           </p>
           <p>
-            I founded Reliability Lounge, a free, open-source SRE community, and I write the Null vs the Stack series. Fractional and advisory work runs through NullorNaN, and I'm open to the right full-time role. Fit and impact matter more to me than the exact title.
+            I serve as Lead Engineer for Reliability Lounge, NullorNaN's community outreach division for operator content and community, and I write the <a href={nullVsStackWritingUrl}>Null vs the Stack</a> series. Fractional and advisory work runs through NullorNaN, and I'm open to the right full-time role. Fit and impact matter more to me than the exact title.
           </p>
 
           <!-- Longer versions of the home page pull-quotes. Verified word for word from public LinkedIn recommendations. Never reword; trim only at sentence boundaries, marked with three periods. -->
